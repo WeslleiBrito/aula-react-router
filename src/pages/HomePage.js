@@ -1,20 +1,16 @@
 import { ContainerPage, Title, Botao, ContaineterButtons } from "./style";
 import { useNavigate } from "react-router-dom";
-
+import { goPageHome } from "../routes/Coordinator";
 
 export const HomePage = () => {
     const navigate = useNavigate()
-
-    const goPage = (path, language) => {
-        navigate(`${path}/${language}`)
-    }
 
     return (
         <ContainerPage>
             <Title>Home Page</Title>
             <ContaineterButtons>
-                <Botao onClick={() => goPage('/about', "ptBr")}>Sobre</Botao>
-                <Botao onClick={() => goPage('/about', "en")}>About</Botao>
+                <Botao onClick={() => goPageHome(navigate, '/about', "ptBr")}>Sobre</Botao>
+                <Botao onClick={() => goPageHome(navigate, '/about', "en")}>About</Botao>
             </ContaineterButtons>
 
         </ContainerPage>
